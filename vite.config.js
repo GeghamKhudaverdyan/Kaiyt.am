@@ -5,3 +5,11 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 })
+
+
+
+const t = () => {
+return 1;
+}
+
+const h = () =>  1; 

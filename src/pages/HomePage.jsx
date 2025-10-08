@@ -4,7 +4,7 @@ function HomePage() {
   return (
     <div style={{ padding: '20px' }}>
       <h1>Kayt.am</h1>
-      <p>Բարի գալուստ Kayt.am կայք</p>
+      <p>Welcome to Kayt.am </p>
       
       <div style={{ marginTop: '20px' }}>
         <Link 

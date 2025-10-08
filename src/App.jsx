@@ -13,8 +13,8 @@ import {
 function Home() {
   return (
     <div style={{ padding: 20 }}>
-      <h1>Kayt.am ԹԵՍՏ</h1>
-      <p>React-ը աշխատում է! 🎉</p>
+      <h1>Kayt.am TEST</h1>
+      <p>React is working! 🎉</p>
       <Link
         to="/little-fox/hayrik&littlefox/#1"
         style={{
@@ -34,18 +34,16 @@ function Home() {
 }
 
 function Hayrik() {
-  // հիմա օգտագործում ենք ոչ encoded slug՝ որպես raw մասնիկ
   const slug = 'hayrik&littlefox';
 
   return (
     <div style={{ padding: 20 }}>
       <h1>Hayrik & Little Fox</h1>
-      <p>URL օրինակ: <code>/little-fox/{slug}/#3</code></p>
+      <p>URL Example: <code>/little-fox/{slug}/#3</code></p>
 
-      <h2>Պատմություններ</h2>
+      <h2>History</h2>
       <div style={{ marginTop: 20 }}>
         {[1,2,3,4,5,6,7,8,9,10].map(number => (
-          // ՆՍՏԱՑԻՐ՝ ավելացնում ենք trailing slash մինչեւ hash
           <Link
             key={number}
             to={`/little-fox/${slug}/#${number}`}
@@ -59,25 +57,25 @@ function Hayrik() {
               borderRadius: 6,
             }}
           >
-            📖 Պատմություն #{number}
+            📖 History #{number}
           </Link>
         ))}
       </div>
 
       <div style={{ marginTop: 20 }}>
-        <Link to="/" style={{ textDecoration: 'none' }}>← Վերադարձ գլխավոր էջ</Link>
+        <Link to="/" style={{ textDecoration: 'none' }}> Beck to main page</Link>
       </div>
     </div>
   );
 }
 
 function Story() {
-  // Մեր Route-ը վերցնում է slug-ը՝ համ `/*` որը թույլ կտա trailing slash
+
   const { slug } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
 
-  // location.hash կլինի օրինակ "#3" կամ "" եթե չկա
+
   const rawHash = location.hash || ''; // e.g. "#3"
   const withoutHash = rawHash.startsWith('#') ? rawHash.slice(1) : rawHash;
   const storyNumber = Number(withoutHash);
@@ -86,19 +84,19 @@ function Story() {
 
   return (
     <div style={{ padding: 20, textAlign: 'center' }}>
-      <h1>{valid ? `Պատմություն #${storyNumber}` : 'Ընտրեք Պատմություն (#n)'}</h1>
+      <h1>{valid ? `History #${storyNumber}` : 'Choos History (#n)'}</h1>
 
       {valid ? (
         <>
-          <p>Դուք գտնվում եք {slug} պատմության {storyNumber} համարի էջում</p>
-          <h2>✅ Համարը ճիշտ է!</h2>
-          <p>Այստեղ կտեղադրվի պատմությունը #{storyNumber}</p>
+          {/* <p>Դուք գտնվում եք {slug} պատմության {storyNumber} համարի էջում</p> */}
+          <h2>✅ Number is Right!</h2>
+          {/* <p>Այստեղ կտեղադրվի պատմությունը #{storyNumber}</p> */}
         </>
       ) : (
         <>
-          <h2>ℹ️ Պահանջվում է ընտրված համար</h2>
-          <p>Խնդրում ենք ընտրել 1–10 միջակայքից որևէ մեկը (URL-ում օգտագործելով #n)։</p>
-          <p>Օրինակ՝ <code>/little-fox/{slug}/#3</code></p>
+          <h2>ℹ️ Whanted chosen number</h2>
+          <p> Chose one 1-10 (URL #n)։</p>
+          <p>Example <code>/little-fox/{slug}/#3</code></p>
         </>
       )}
 
@@ -113,7 +111,7 @@ function Story() {
           onClick={() => navigate(-1)}
           style={{ padding: '10px 14px', cursor: 'pointer' }}
         >
-          ← Վերադարձ
+          Beck
         </button>
       </div>
     </div>
@@ -121,15 +119,15 @@ function Story() {
 }
 
 export default function App() {
-  // Եթե ուզում ես basename-ը պահես՝ թողիր, այլապես հանի այն
+
   return (
     <BrowserRouter basename="/KaytArt-Production">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/little-fox" element={<Hayrik />} />
-        {/* Օգտագործում ենք '*' որպեսզի trailing slash նախքան '#' լավ ընդունվի */}
+
         <Route path="/little-fox/:slug/*" element={<Story />} />
-        <Route path="*" element={<div style={{ padding: 20 }}>404 — Բացակայող էջ</div>} />
+        <Route path="*" element={<div style={{ padding: 20 }}>404 Page Not Found</div>} />
       </Routes>
     </BrowserRouter>
   );

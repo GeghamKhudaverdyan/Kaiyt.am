@@ -6,9 +6,9 @@ function HayrikLittleFox() {
       <h1>Hayrik & Little Fox</h1>
       <p>URL: Kayt.am/KaytArt-Production/little-fox/hayrik&littlefox</p>
       
-      <h2>Պատմություններ:</h2>
+      <h2>History:</h2>
       <div style={{ marginTop: '20px' }}>
-        {/* 1-ից 10 պատմություններ */}
+
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(number => (
           <Link 
             key={number}
@@ -23,7 +23,7 @@ function HayrikLittleFox() {
               textDecoration: 'none'
             }}
           >
-            📖 Պատմություն #{number}
+            📖 History #{number}
           </Link>
         ))}
       </div>
