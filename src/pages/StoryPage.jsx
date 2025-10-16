@@ -1,52 +1,33 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import NotFound from './404NotFound';
 
-function StoryPage() {
+export default function StoryPage() {
   const { storyNumber } = useParams();
-  const navigate = useNavigate();
-  const storyNum = parseInt(storyNumber, 10);
-  
-  console.log("Story number (string):", storyNumber);
-  console.log("Story number (parsed):", storyNum);
-  
-  const isValid = !isNaN(storyNum) && storyNum >= 1 && storyNum <= 10;
-  
-  return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h1>History #{isValid ? storyNum : '?'}</h1>
-      <p>Hayrik & Little Fox Story {isValid ? storyNum : '?'} number page</p>
-      
-      {isValid ? (
-        <div>
-          <h2>✅ Number is right!</h2>
-          <p>In this page will be a story #{storyNum}</p>
-        </div>
-      ) : (
-        <div>
-          <h2>❌ Error</h2>
-          <p>Choose only 1-10</p>
-        </div>
-      )}
-      
-      <div style={{ marginTop: '30px' }}>
-        <p><strong>URL:</strong> Kayt.am/KaytArt-Production/Little-Fox/Hayrik&Little-Fox/{storyNum}</p>
-      </div>
+  const n = parseInt(storyNumber, 10);
 
-      <div style={{ marginTop: 20 }}>
-        <button
-          onClick={() => navigate('/Little-Fox')}
-          style={{ padding: '10px 14px', cursor: 'pointer', marginRight: 10 }}
-        >
-          Back to List
-        </button>
-        <button
-          onClick={() => navigate('/')}
-          style={{ padding: '10px 14px', cursor: 'pointer' }}
-        >
-          Home
-        </button>
-      </div>
+  const TITLES = [
+    "Աղվես",
+    "Ջուր կուգեր",
+    "Բարի լուսո աստղ երևաց",
+    "Լորիկ",
+    "Ջանիման",
+    "Մեր տան իտև",
+    "Էպոսի երգ",
+    "Խըլբանե",
+    "Տընեն էլար",
+    "Ճախարակի երգ",
+  ];
+
+  if (!Number.isInteger(n) || n < 1 || n > 10) {
+    return (
+    <NotFound />
+    )
+  }
+
+  return (
+    <div style={{ padding: 40, textAlign: 'center' }}>
+      <h1>{TITLES[n - 1]}</h1>
     </div>
   );
 }
-
-export default StoryPage;

@@ -9,29 +9,8 @@ import {
   useNavigate
 } from 'react-router-dom';
 import StoryPage from './pages/StoryPage';
-
-function Home() {
-  return (
-    <div style={{ padding: 20 }}>
-      <h1>Kayt.am TEST</h1>
-      <p>React is working! 🎉</p>
-      <Link
-        to="/Little-Fox/Hayrik&Little-Fox/1"
-        style={{
-          display: 'inline-block',
-          marginTop: 20,
-          padding: '12px 16px',
-          backgroundColor: '#007bff',
-          color: 'white',
-          textDecoration: 'none',
-          borderRadius: 6
-        }}
-      >
-        → Hayrik & Little Fox Պատմություններ (տես #1)
-      </Link>
-    </div>
-  );
-}
+import HomePage from './pages/HomePage';
+import KaytArtProd from './pages/KaytArtProd';
 
 function LittleFoxList() {
   const slug = 'Hayrik&Little-Fox';
@@ -69,21 +48,26 @@ function LittleFoxList() {
   );
 }
 
+function NotFound() {
+  return (
+    <div style={{ padding: 20 }}>
+      <h1>404 Page Not Found</h1>
+      <p>Current path: {window.location.pathname}</p>
+      <p>Full URL: {window.location.href}</p>
+      <Link to="/">Go Home</Link>
+    </div>
+  );
+}
+
 export default function App() {
   return (
-    <BrowserRouter basename="/KaytArt-Production">
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Little-Fox" element={<LittleFoxList />} />
-        <Route path="/Little-Fox/Hayrik&Little-Fox/:storyNumber" element={<StoryPage />} />
-        <Route path="*" element={
-          <div style={{ padding: 20 }}>
-            <h1>404 Page Not Found</h1>
-            <p>Current path: {window.location.pathname}</p>
-            <p>Full URL: {window.location.href}</p>
-            <Link to="/">Go Home</Link>
-          </div>
-        } />
+        <Route path="/" element={<HomePage />} /> 
+        <Route path="/KaytArt-Production" element={<KaytArtProd/>} />
+        <Route path="/KaytArt-Production/Little-Fox" element={<LittleFoxList />} />
+        <Route path="/KaytArt-Production/Little-Fox/Hayrik&Little-Fox/:storyNumber" element={<StoryPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
