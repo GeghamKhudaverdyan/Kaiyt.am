@@ -1,0 +1,23 @@
+{
+  "home": "Home",
+  "stories": "Stories",
+  "about": "About Us",
+  "contact": "Contact Us",
+  "hayrik&fox": {
+    "1": {
+      "storyName": "The Fox Came Down the Hill",
+      "title": "The Fox Came Down the Hill",
+      "subheader": "The Fox Came Down the Hill",
+      "text": "Father was sitting under the warm sun, in the shade of a tree. The children sat around him in a circle, listening closely.\n— One day, — Father was saying, — a clever fox came down from the mountains. He had a long and fluffy tail.\nHe didn’t have time to finish. A noise was heard from the edge of the village. A hen screamed, and feathers flew into the air.\n— The fo-o-ox! — shouted one boy, — it’s in the henhouse!\nThe children ran toward the coop, and Father followed them.\nAnd there they saw how the fox was trying skillfully to steal a hen.\nFather began to sing with a smile, but in a serious tone:\n“The fox came down the hill,\nWith little shorty legs still…”\nThe children, excited, joined the song — but they were determined to keep the fox away."
+    },
+    "2": { "storyName": "Water Was Coming" },
+    "3": { "storyName": "The Star of the Good Morning Appeared" },
+    "4": { "storyName": "Loric" },
+    "5": { "storyName": "Janiman" },
+    "6": { "storyName": "Behind Our House" },
+    "7": { "storyName": "Song of the Epic" },
+    "8": { "storyName": "Khlbane" },
+    "9": { "storyName": "You’ll Come Home" },
+    "10": { "storyName": "Song of the Kite" }
+  }
+}

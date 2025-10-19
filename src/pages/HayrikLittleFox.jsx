@@ -12,7 +12,7 @@ function HayrikLittleFox() {
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(number => (
           <Link 
             key={number}
-            to={`/KaytArt-Production/little-fox/hayrik&littlefox/${number}`}
+            to={`/KaytArt-Production/little-fox/Hayrik&Little-Fox/${number}`}
             style={{ 
               display: 'block', 
               margin: '10px 0', 
