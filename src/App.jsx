@@ -5,12 +5,13 @@ import {
   Routes,
   Route,
   Link,
-  useLocation,
-  useNavigate
 } from 'react-router-dom';
 import StoryPage from './pages/StoryPage';
 import HomePage from './pages/HomePage';
 import KaytArtProd from './pages/KaytArtProd';
+import Header from './components/Header';
+import HayrikLittleFox from './pages/HayrikLittleFox';
+import Footer from './components/Footer';
 
 function LittleFoxList() {
   const slug = 'Hayrik&Little-Fox';
@@ -61,14 +62,23 @@ function NotFound() {
 
 export default function App() {
   return (
+    <>
+
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} /> 
-        <Route path="/KaytArt-Production" element={<KaytArtProd/>} />
-        <Route path="/KaytArt-Production/Little-Fox" element={<LittleFoxList />} />
-        <Route path="/KaytArt-Production/Little-Fox/Hayrik&Little-Fox/:storyNumber" element={<StoryPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+       <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} /> 
+            <Route path="/KaytArt-Production" element={<KaytArtProd/>} />
+            <Route path="/KaytArt-Production/Little-Fox" element={<HayrikLittleFox />} />
+            <Route path="/KaytArt-Production/Little-Fox/Hayrik&Little-Fox/:storyNumber" element={<StoryPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </BrowserRouter>
+    </>
   );
 }
